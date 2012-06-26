@@ -579,13 +579,13 @@ public class JPhotoFrame extends JFrame
         }
         else if (cmd.equals(JPhotoMenu.A_FULLVIEW)) {
             // list.toggleFullView();
-            startFullView();                
+            startFullView();
         }
         else if (cmd.equals(JPhotoMenu.A_SHOWEXIF)) {
             showExif();
         }
         else if (cmd.equals(JPhotoMenu.A_SLIDESHOW)) {
-            start_slideshow();
+            start_slideshow(photos.getSize());
 
         }
         else if (cmd.equals(JPhotoMenu.A_HELP)) {
@@ -625,10 +625,9 @@ public class JPhotoFrame extends JFrame
         setTitle();
     }
 
-    public void start_slideshow() {
-        if (photos.getSize()>0) {
-            JPhotoShow show = new JPhotoShow(photos, 5000, list);
-            show.setVisible(true);
+    public void start_slideshow(int photosize) {
+        if (photosize>0) {
+            startSlideShow();
         }
         else {
 
@@ -636,7 +635,12 @@ public class JPhotoFrame extends JFrame
         }
     }
 
-     class guiErrDialogueBox implements dialogueBox {
+    public void startSlideShow() {
+        JPhotoShow show = new JPhotoShow(photos, 5000, list);
+        show.setVisible(true);
+    }
+
+    class guiErrDialogueBox implements dialogueBox {
 
          private Component parentWindow;
 

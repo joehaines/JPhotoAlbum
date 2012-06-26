@@ -18,8 +18,21 @@ public class JPhotoFrameTest {
 
         fakeDialogueBox fake = new fakeDialogueBox();
         JPhotoFrame frame = new JPhotoFrame("TEST_SPECIAL_NAME", new JPhotoCollection(), fake);
-        frame.start_slideshow();
+
+        //start the slideshow with 0 photos loaded, we should see an err dialogue box displayed (using a fake dialogue so that nothing actually occurs)
+        frame.start_slideshow(0);
+
+        //determine if our fake dialogue box was called
         assertTrue(fake.wasCalled);
+
+    }
+
+    @Test
+    public void testFullScreenViewWithPhotos() throws Exception {
+
+        fakeDialogueBox fake = new fakeDialogueBox();
+        JPhotoFrame frame = new JPhotoFrame("TEST_SPECIAL_NAME", new JPhotoCollection());
+        frame.start_slideshow(1);
 
     }
 
