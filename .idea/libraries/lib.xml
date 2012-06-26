@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/metadata-extractor-2.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/JPhotoAlbum.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xerces.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/castor.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xalan.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
