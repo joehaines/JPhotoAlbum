@@ -1,5 +1,9 @@
 package fi.iki.jka;
 
+import org.testng.annotations.Test;
+
+import static junit.framework.Assert.assertTrue;
+
 /**
  * Created with IntelliJ IDEA.
  * User: localuser
@@ -8,18 +12,25 @@ package fi.iki.jka;
  * To change this template use File | Settings | File Templates.
  */
 public class JPhotoFrameTest {
-    @org.junit.Before
-    public void setUp() throws Exception {
+
+    @Test
+    public void testFullScreenView() throws Exception {
+
+        fakeDialogueBox fake = new fakeDialogueBox();
+        JPhotoFrame frame = new JPhotoFrame("TEST_SPECIAL_NAME", new JPhotoCollection(), fake);
+        frame.start_slideshow();
+        assertTrue(fake.wasCalled);
 
     }
 
-    @org.junit.After
-    public void tearDown() throws Exception {
+    class fakeDialogueBox implements dialogueBox {
 
-    }
+        public boolean wasCalled = false;
 
-    @org.junit.Test
-    public void testStartFullView() throws Exception {
+        public void showNoPhotosErr() {
+            //no dialogue box
+            wasCalled = true;
 
+        }
     }
 }
